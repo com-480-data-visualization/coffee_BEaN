@@ -1,10 +1,10 @@
 # Project of Data Visualization (COM-480)
 
-| Student's name     | SCIPER              |
-|--------------------|---------------------|
-| Elif Kurtay        | 352311              |
-| Nikhen Sanjaya Nyo | 376406 |
-| Burcu Özer         |355130|
+| Student's name     | SCIPER  |
+|--------------------|---------|
+| Elif Kurtay        | 352311  |
+| Nikhen Sanjaya Nyo | 376406  |
+| Burcu Özer         | 355130  |
 
 [Milestone 1](documents/Milestone%201.pdf) • [Milestone 2](#milestone-2) • [Milestone 3](#milestone-3)
 
@@ -57,6 +57,10 @@ We plan to include the following figures in our website:
 - Figure 7: 	Provide interactive visualization that shows the composition of coffee based drinks (mainly cocktails) with their ingredients.
 
 ### Exploratory Data Analysis
+
+All figures shown here are selected from the output of the data analysis done in the [Data Preparation notebook](data_analysis/DataPreparation.ipynb).
+![Figure 1: Coffee varieties and total cup points of countries](documents/images/fig1.png)
+
 Using Coffee Quality Data (CQI May-2023), we extracted the countries producing coffee which are colored on the world map in Figure 1. From the colors, it can be concluded that the highest overall coffee quality is reached in the continent of Africa. The figure also shows the coffee varieties produced in a country when the country is hovered over.
 
 In Figure 2, the plot shows that the majority of the varieties have a rating between 7 and 8. Notably, Castillo stands out with an exceptional aroma rating exceeding 8.5. We examined the frequencies of coffee colors in Figure 3 which shows that green is the most frequent coffee bean color which we were quite shocked that it was not brown.
