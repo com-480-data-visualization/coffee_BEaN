@@ -1,12 +1,12 @@
 # Project of Data Visualization (COM-480)
 
-| Student's name | SCIPER |
-| -------------- | ------ |
-| | |
-| | |
-| | |
+| Student's name     | SCIPER              |
+|--------------------|---------------------|
+| Elif Kurtay        | 352311              |
+| Nikhen Sanjaya Nyo | 376406 |
+| Burcu Özer         |355130|
 
-[Milestone 1](#milestone-1) • [Milestone 2](#milestone-2) • [Milestone 3](#milestone-3)
+[Milestone 1](documents/Milestone%201.pdf) • [Milestone 2](#milestone-2) • [Milestone 3](#milestone-3)
 
 ## Milestone 1 (29th March, 5pm)
 
