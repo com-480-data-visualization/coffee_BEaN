@@ -79,6 +79,7 @@ In Figure 2, the plot shows that the majority of the varieties have a rating bet
 ![Figure 4: Pie Chart On Reasons for Drinking Coffee](documents/images/fig4.png)
 
 *Figure 4: Pie Chart On Reasons for Drinking Coffee*
+
 From our Coffee Tastes & Survey data dataset, we found the distribution of reasons as to why people drink coffee, shown on Figure 4. We then plotted a population pyramid from the graph, where we obtained information about people’s coffee drinking habits, based on their demographic. From this data, we have found trends that indicate that the male population tends to drink more coffee than the female population, and prefers stronger coffee than the female population.
 
 ![Figure 5: Population Pyramid that shows Coffee drinking facts by demographic](documents/images/fig5.png)
