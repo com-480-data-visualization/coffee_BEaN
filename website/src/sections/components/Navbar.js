@@ -1,7 +1,5 @@
 import React, {useState} from 'react';
 import {Link} from "react-scroll";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faXmark, faBars } from '@fortawesome/free-solid-svg-icons'
 import './Navbar.css';
 
 function Navbar() {
@@ -16,9 +14,6 @@ function Navbar() {
         <a href="/website/public" className="navbar-logo">
           {"Coffee BEaN"}
         </a>
-        <div className="menu-icon" onClick={handleClick}>
-          <FontAwesomeIcon icon={click ? faXmark : faBars}/>
-        </div>
         <ul className={click ? "nav-menu active" : "nav-menu"}>
           <li className="nav-item">
             <Link to="hero" className="nav-links" onClick={closeMobileMenu}
