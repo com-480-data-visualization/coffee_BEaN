@@ -6,6 +6,8 @@
 | Nikhen Sanjaya Nyo | 376406  |
 | Burcu Özer         | 355130  |
 
+[Website](https://com-480-data-visualization.github.io/coffee_BEaN/)
+
 [Milestone 1](documents/Milestone%201.pdf) • [Milestone 2](#milestone-2) • [Milestone 3](#milestone-3)
 
 ## Milestone 1 (29th March, 5pm)
