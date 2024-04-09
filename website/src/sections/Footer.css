@@ -1,0 +1,41 @@
+.footer-container {
+  background-color: #242424;
+  padding: 4rem 0 10rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-size: 2rem;
+  color: white;
+  padding-bottom: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: #e09696;
+}
+
+.container {
+  max-width: 1120px;
+  width: 90%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.container .col-1,
+.container .col-2,
+.container .col-3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  color: #e09696;
+}
+
+@media screen and (max-width: 768px) {
+}
