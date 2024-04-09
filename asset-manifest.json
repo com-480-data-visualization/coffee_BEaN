@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/coffee_BEaN/static/css/main.40d38b3d.css",
+    "main.js": "/coffee_BEaN/static/js/main.9f217f6b.js",
+    "static/js/453.bb828c5d.chunk.js": "/coffee_BEaN/static/js/453.bb828c5d.chunk.js",
+    "static/media/welcome-background.png": "/coffee_BEaN/static/media/welcome-background.98c48e1f87365e8ea1c8.png",
+    "index.html": "/coffee_BEaN/index.html",
+    "main.40d38b3d.css.map": "/coffee_BEaN/static/css/main.40d38b3d.css.map",
+    "main.9f217f6b.js.map": "/coffee_BEaN/static/js/main.9f217f6b.js.map",
+    "453.bb828c5d.chunk.js.map": "/coffee_BEaN/static/js/453.bb828c5d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.40d38b3d.css",
+    "static/js/main.9f217f6b.js"
+  ]
+}
