@@ -29,15 +29,15 @@ Available categories:
     Balance: Balance refers to how well the different flavor components of the coffee work together.
 
  */
-export function RadarChart() {
+export function RadarChart(props) {
     const data = {
         labels: ["Aroma", "Flavor", "Aftertaste", "Acidity", "Body", "Balance"],
         datasets: [
             {
-                label: "Gesha",
-                data: [8.5, 8.5, 7.92, 8.0, 7.92, 8.25],
-                backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                borderColor: 'rgba(255, 99, 132, 1)',
+                label: props.label,
+                data: props.data,
+                backgroundColor: props.backgroundColor,
+                borderColor: props.borderColor,
                 borderWidth: 1.5,
             }
         ]
@@ -46,7 +46,7 @@ export function RadarChart() {
         plugins: {
             legend: {
                 labels: {
-                    color: 'rgba(255, 99, 132, 1)',
+                    color: props.borderColor,
                     font: {
                         size: 16
                     }
