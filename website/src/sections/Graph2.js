@@ -7,7 +7,15 @@ const Graph2 = () => {
     <div className='graph2' id='graph2'>
       <h1>{"Taste Atlas of Coffee"}</h1>
         <div className='main-radar'>
-            <RadarChart/>
+            <div className='col-1'>
+                <RadarChart/>
+            </div>
+            <div className='col-2'>
+                <RadarChart/>
+            </div>
+            <div className='col-3'>
+                <RadarChart/>
+            </div>
         </div>
 
     </div>

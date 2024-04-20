@@ -1,6 +1,23 @@
 import React from "react";
-import { Radar } from "react-chartjs-2";
-import { Chart as ChartJS, LineController, LineElement, RadialLinearScale, PointElement, LinearScale, Title } from 'chart.js';
+import {
+    Chart as ChartJS,
+    RadialLinearScale,
+    PointElement,
+    LineElement,
+    Filler,
+    Tooltip,
+    Legend
+} from 'chart.js';
+import { Radar } from 'react-chartjs-2';
+
+ChartJS.register(
+    RadialLinearScale,
+    PointElement,
+    LineElement,
+    Filler,
+    Tooltip,
+    Legend
+);
 /*
 Taste Palette of Coffee's in a radar chart format.
 Available categories:
@@ -12,46 +29,55 @@ Available categories:
     Balance: Balance refers to how well the different flavor components of the coffee work together.
 
  */
-ChartJS.register(LineController, LineElement, PointElement, RadialLinearScale, LinearScale, Title);
 export function RadarChart() {
-    const RadarData = {
+    const data = {
         labels: ["Aroma", "Flavor", "Aftertaste", "Acidity", "Body", "Balance"],
         datasets: [
             {
                 label: "Gesha",
                 data: [8.5, 8.5, 7.92, 8.0, 7.92, 8.25],
-                fill:true,
-                backgroundColor: "rgba(34, 202, 236, .2)",
-                borderColor: "rgba(34, 202, 236, 1)",
-                pointBackgroundColor: "rgba(34, 202, 236, 1)",
-                pointBorderColor: "#fff",
-                pointHoverBackgroundColor: "#fff",
-                pointHoverBorderColor: "rgba(34, 202, 236, 1)"
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1.5,
             }
         ]
     };
-    const RadarOptions = {
-        scale: {
-            ticks: {
-                min: 6,
-                max: 10,
-                stepSize: 1,
-                showLabelBackdrop: true,
-                backdropColor: "rgba(203, 197, 11, 1)"
-            },
-            angleLines: {
-                color: "#fff",
-                lineWidth: 2
-            },
-            gridLines: {
-                color: "#fff",
-                circular: true
+    const options = {
+        plugins: {
+            legend: {
+                labels: {
+                    color: 'rgba(255, 99, 132, 1)',
+                    font: {
+                        size: 16
+                    }
+                }
             }
+        },
+        scales: {
+            r: {
+                ticks: {
+                    display: false,
+                    stepSize: 0.2,
+                },
+                pointLabels: {
+                    color: 'rgba(250, 237, 244, 0.8)',
+                    font: {
+                        size: 14
+                    }
+                },
+                angleLines: {
+                    color: 'rgba(250, 237, 244, 0.8)',
+                },
+                grid: {
+                    color: 'rgba(250, 237, 244, 0.8)',
+                }
+            }
+
         }
-    };
+    }
 
     return (
-        <Radar data={RadarData} options={RadarOptions} />
+        <Radar data={data} options={options}/>
     );
 }
 

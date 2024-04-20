@@ -30,7 +30,7 @@ function Navbar() {
           <li className="nav-item">
             <Link to="graph2" className="nav-links" onClick={closeMobileMenu}
                   smooth={true} spy={true} offset={-80} duration={500}>
-              {"Graph 2"}
+              {"Taste"}
             </Link>
           </li>
           <li className="nav-item">
