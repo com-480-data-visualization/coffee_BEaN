@@ -24,13 +24,25 @@ function Navbar() {
           <li className="nav-item">
             <Link to="graph" className="nav-links" onClick={closeMobileMenu}
                   smooth={true} spy={true} offset={-80} duration={500}>
-              {"Graph 1"}
+              {"Map"}
             </Link>
           </li>
           <li className="nav-item">
             <Link to="graph2" className="nav-links" onClick={closeMobileMenu}
                   smooth={true} spy={true} offset={-80} duration={500}>
               {"Taste"}
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="graph3" className="nav-links" onClick={closeMobileMenu}
+                  smooth={true} spy={true} offset={-80} duration={500}>
+              {"People"}
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="graph4" className="nav-links" onClick={closeMobileMenu}
+                  smooth={true} spy={true} offset={-80} duration={500}>
+              {"Coders"}
             </Link>
           </li>
           <li className="nav-item">
