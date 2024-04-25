@@ -13,7 +13,7 @@ export function WorldMap() {
         .domain([81.5329, 84.9609])
         .interpolator(d3.interpolateYlOrRd);
     const projection = d3.geoMercator()
-        .translate([width / 2, height / 2 + 200])
+        .translate([width / 2, height / 2 + 250])
         .scale(width / 2 / Math.PI - margin * 2);
 
     const path = d3.geoPath()
