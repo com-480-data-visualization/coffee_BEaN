@@ -1,0 +1,121 @@
+[
+    {
+      "age": "<18",
+      "male": 3,
+      "hoverMale": [
+        ["Most Common Cups Per Day", "2"],
+        ["Most Common Place to Drink", "At home"],
+        ["Most Common Favourite Drink", "Blended drink (e.g. Frappuccino)"],
+        ["Most Common Coffee Strength", "Somewhat light"]
+      ],
+      "female": 4,
+      "hoverFemale": [
+        ["Most Common Cups Per Day", "Less than 1"],
+        ["Most Common Place to Drink", "At home"],
+        ["Most Common Favourite Drink", "Latte"],
+        ["Most Common Coffee Strength", "Medium"]
+      ]
+    },
+    {
+      "age": "18-24",
+      "male": 103,
+      "hoverMale": [
+        ["Most Common Cups Per Day", "2"],
+        ["Most Common Place to Drink", "At home"],
+        ["Most Common Favourite Drink", "Pourover"],
+        ["Most Common Coffee Strength", "Somewhat strong"]
+      ],
+      "female": 74,
+      "hoverFemale": [
+        ["Most Common Cups Per Day", "1"],
+        ["Most Common Place to Drink", "At home"],
+        ["Most Common Favourite Drink", "Latte"],
+        ["Most Common Coffee Strength", "Medium"]
+      ]
+    },
+    {
+      "age": "25-34",
+      "male": 432,
+      "hoverMale": [
+        ["Most Common Cups Per Day", "2"],
+        ["Most Common Place to Drink", "At home"],
+        ["Most Common Favourite Drink", "Pourover"],
+        ["Most Common Coffee Strength", "Somewhat strong"]
+      ],
+      "female": 419,
+      "hoverFemale": [
+        ["Most Common Cups Per Day", "1"],
+        ["Most Common Place to Drink", "At home"],
+        ["Most Common Favourite Drink", "Latte"],
+        ["Most Common Coffee Strength", "Medium"]
+      ]
+    },
+    {
+      "age": "35-44",
+      "male": 196,
+      "hoverMale": [
+        ["Most Common Cups Per Day", "2"],
+        ["Most Common Place to Drink", "At home"],
+        ["Most Common Favourite Drink", "Pourover"],
+        ["Most Common Coffee Strength", "Somewhat strong"]
+      ],
+      "female": 197,
+      "hoverFemale": [
+        ["Most Common Cups Per Day", "1"],
+        ["Most Common Place to Drink", "At home"],
+        ["Most Common Favourite Drink", "Latte"],
+        ["Most Common Coffee Strength", "Medium"]
+      ]
+    },
+    {
+      "age": "45-54",
+      "male": 67,
+      "hoverMale": [
+        ["Most Common Cups Per Day", "2"],
+        ["Most Common Place to Drink", "At home"],
+        ["Most Common Favourite Drink", "Pourover"],
+        ["Most Common Coffee Strength", "Somewhat strong"]
+      ],
+      "female": 78,
+      "hoverFemale": [
+        ["Most Common Cups Per Day", "1"],
+        ["Most Common Place to Drink", "At home"],
+        ["Most Common Favourite Drink", "Latte"],
+        ["Most Common Coffee Strength", "Medium"]
+      ]
+    },
+    {
+      "age": "55-64",
+      "male": 32,
+      "hoverMale": [
+        ["Most Common Cups Per Day", "2"],
+        ["Most Common Place to Drink", "At home"],
+        ["Most Common Favourite Drink", "Pourover"],
+        ["Most Common Coffee Strength", "Somewhat strong"]
+      ],
+      "female": 60,
+      "hoverFemale": [
+        ["Most Common Cups Per Day", "2"],
+        ["Most Common Place to Drink", "At home"],
+        ["Most Common Favourite Drink", "Regular drip coffee"],
+        ["Most Common Coffee Strength", "Somewhat strong"]
+      ]
+    },
+    {
+      "age": ">65",
+      "male": 20,
+      "hoverMale": [
+        ["Most Common Cups Per Day", "2"],
+        ["Most Common Place to Drink", "At home"],
+        ["Most Common Favourite Drink", "Regular drip coffee"],
+        ["Most Common Coffee Strength", "Somewhat strong"]
+      ],
+      "female": 21,
+      "hoverFemale": [
+        ["Most Common Cups Per Day", "2"],
+        ["Most Common Place to Drink", "At home"],
+        ["Most Common Favourite Drink", "Regular drip coffee"],
+        ["Most Common Coffee Strength", "Medium"]
+      ]
+    }
+  ]

@@ -1,0 +1,35 @@
+.graph3 {
+  background-color: white;
+  display: block;
+  justify-content: center; /* Horizontally center the content */
+  align-items: center;
+  margin: auto;
+  padding: 5rem 1rem 50rem 2rem;
+  width: 100%;
+}
+
+.graph3 h1 {
+  text-align: center;
+  color: rosybrown;
+  font-size: 3rem;
+  margin-bottom: 25px;
+}
+
+.graph3 h2 {
+  font-size: 2rem;
+  color: white;
+}
+
+#pyramid{
+  display: flex;
+  justify-content: center; /* Aligns items horizontally */
+  align-items: center; /* Aligns items vertically */
+}
+
+
+
+
+
+
+
+
