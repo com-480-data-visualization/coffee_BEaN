@@ -7,6 +7,10 @@ const Graph4 = () => {
   useEffect(()=>{
     const dataArray = Object.values(CodersData.CodingHours)
     dataArray.forEach(value => console.log(value));
+    var layout= {
+      plot_bgcolor:"bisque",
+      paper_bgcolor:"bisque"
+    }
     var data = [
       {
           type: 'parcoords',
@@ -58,7 +62,7 @@ const Graph4 = () => {
       }
   ];
   
-  Plotly.newPlot('ParallelCoordinatesGraph', data);
+  Plotly.newPlot('ParallelCoordinatesGraph', data, layout);
   })
   return (
     <div className='graph4' id='graph4'>
