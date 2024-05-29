@@ -19,6 +19,15 @@
   color: white;
 }
 
+.graph2 .interactive-radar {
+  display: flex;
+  width: fit-content;
+  height: fit-content;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+}
+
 .graph2 .main-radar {
   display: grid;
   width: 90%;
