@@ -5,16 +5,16 @@ import allCountries from "../../data/world_points.json";
 
 export function WorldMap(props) {
     const width = window.innerWidth;
-    const height = window.innerHeight;
+    const height = window.innerHeight / 1.2;
     const margin = width / 60;
-    const colorBarWidth = 20;
-    const colorBarHeight = height / 5;
+    const colorBarWidth = width / 6;
+    const colorBarHeight = 20;
 
     const colorScale = d3.scaleSequential()
         .domain([81.5329, 84.9609])
         .interpolator(d3.interpolateYlOrRd);
     const projection = d3.geoMercator()
-        .translate([width / 2, height / 2 + 250])
+        .translate([width / 2, height / 2 + 50])
         .scale(width / 2 / Math.PI - margin * 2);
 
     const path = d3.geoPath()
@@ -43,20 +43,20 @@ export function WorldMap(props) {
         // Add color bar
         const colorBar = svg.append("g")
             .attr("class", "color-bar")
-            .attr("transform", `translate(${width - colorBarWidth - margin *8}, ${margin*5})`);
+            .attr("transform", `translate(${width - colorBarWidth - margin*6}, ${40})`);
 
         const defs = svg.append("defs");
         const linearGradient = defs.append("linearGradient")
             .attr("id", "linear-gradient")
             .attr("x1", "0%")
             .attr("y1", "0%")
-            .attr("x2", "0%")
-            .attr("y2", "100%");
+            .attr("x2", "100%")
+            .attr("y2", "0%");
 
         linearGradient.selectAll("stop")
             .data(d3.range(0, 1, 0.01).map(t => ({
                 offset: `${t * 100}%`,
-                color: colorScale(84.9609 + t * (81.5329 - 84.9609))
+                color: colorScale(81.5329 + t * (84.9609 - 81.5329))
             })))
             .enter().append("stop")
             .attr("offset", d => d.offset)
@@ -69,15 +69,14 @@ export function WorldMap(props) {
 
         const colorScaleAxis = d3.scaleSequential()
             .domain([81.5, 85])
-            .interpolator(d3.interpolateYlOrRd)
-            .range([colorBarHeight, 0]);
+            .range([0, colorBarWidth]);
 
-        const colorAxis = d3.axisRight(colorScaleAxis)
+        const colorAxis = d3.axisTop(colorScaleAxis)
             .ticks(8)
             .tickFormat(d3.format(".1f"));
 
         colorBar.append("g")
-            .attr("transform", `translate(${colorBarWidth}, 0)`)
+            .attr("transform", `translate(0, 0)`)
             .call(colorAxis)
 
         g.selectAll("path")

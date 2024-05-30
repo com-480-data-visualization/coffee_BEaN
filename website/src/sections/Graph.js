@@ -61,24 +61,27 @@ const Graph = () => {
         console.log("Cleared");
         setSelectedCoffeeType("All Varieties");
     };
+
   return (
     <div className='graph' id='graph'>
       <h1>{"Coffee Producing Countries"}</h1>
         <h2>{`${selectedCoffeeType}`}</h2>
       <div className='main-map'>
-          <ReactSearchAutocomplete
-              items={searchList}
-              maxResults={5}
-              onSearch={handleOnSearch}
-              onHover={handleOnHover}
-              onSelect={handleOnSelect}
-              onFocus={handleOnFocus}
-              onClear={handleOnClear}
-              fuseOptions={{ keys: ["name"] }} // Search in the name key
-              styling={{ zIndex: 3}} // To display it on top of the map
-              className="search_bar"
-              defaultValue="All Varieties"
-          />
+          <div style={{width: 350, margin: 20}}>
+              <ReactSearchAutocomplete
+                  items={searchList}
+                  maxResults={5}
+                  onSearch={handleOnSearch}
+                  onHover={handleOnHover}
+                  onSelect={handleOnSelect}
+                  onFocus={handleOnFocus}
+                  onClear={handleOnClear}
+                  fuseOptions={{ keys: ["name"] }} // Search in the name key
+                  styling={{ zIndex: 3}} // To display it on top of the map
+                  className="search_bar"
+                  defaultValue="All Varieties"
+              />
+      </div>
           <WorldMap selectedCoffeeType={selectedCoffeeType} coffeeData={formattedData} />
       </div>
     </div>
