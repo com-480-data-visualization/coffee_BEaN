@@ -13,14 +13,20 @@
 }
 
 .graph h2 {
+  text-align: center;
   font-size: 2rem;
-  color: white;
+  color: salmon;
 }
 
 .graph .main-map {
   justify-content: center;
   align-items: center;
 }
+
+.sc-dcJsrY.jIkziO.search_bar {
+  width: 40%;
+}
+
 
 
 
