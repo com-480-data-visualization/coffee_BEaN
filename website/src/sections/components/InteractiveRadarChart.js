@@ -1,9 +1,9 @@
-import React, { useRef, useEffect } from "react";
+import React, {useRef, useEffect, useState} from "react";
 import * as d3 from "d3";
 import '../Graph2.css'
 
 //data
-const defaultCoffee = {
+export const defaultCoffee = {
     name: "Default",
     color: "rgb(110,52,12)",
     profile: [
@@ -16,16 +16,53 @@ const defaultCoffee = {
     ]
 }
 
+function getClosest(coffee, data, k = 3) {
+    let _coffee = coffee.profile.map(p => p.value)
+
+    function dist(a, b) {
+        return a.map((x, i) => (x - b[i]) ** 2).reduce((sum, now) => sum + now)
+    }
+
+    function compare(a, b) {
+        let _a = a.profile.map(p => p.value)
+        let _b = b.profile.map(p => p.value)
+        return dist(_a, _coffee) - dist(_b, _coffee)
+    }
+
+    return data.sort(compare).slice(0, k)
+}
+
 //chart component
-const InteractiveRadarChart = () => {
+const InteractiveRadarChart = (props) => {
     //refs
     const svgRef = useRef();
+
+    // configs
     const margin = { top: 80, right: 100, bottom: 50, left: 100 },
-        width = Math.min(500, window.innerWidth - 10) - margin.left - margin.right;
-    let config = {
+        width = Math.min(500, window.innerWidth - 10) - margin.left - margin.right,
+        height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20)
+
+    const radarChartOptionsBig = {
         w: width,
-        h: Math.min(width, window.innerHeight - margin.top - margin.bottom - 20),
-        margin: margin, //The margins of the SVG
+        h: height,
+        margin: margin,
+        editable: true,
+        showName: false,
+        showLabels: true
+    }
+    const radarChartOptionsSmall = {
+        w: width / 2,
+        h: height / 2,
+        margin: { top: 10, right: 10, bottom: 10, left: 10 }, //The margins of the SVG
+        editable: false, //If true, the user can edit it
+        showName: true, // If you want to show the labels
+        showLabels: false // If you want to show the name of the bean
+    }
+
+    const [data, setData] = useState(defaultCoffee);
+    const [options, setOptions] = useState(radarChartOptionsSmall);
+
+    let other_config = {
         levels: 5, //How many levels or inner circles should there be drawn
         maxValue: 1, //What is the value that the biggest circle will represent
         labelFactor: 1.25, //How much farther than the radius of the outer circle should the labels be placed
@@ -34,10 +71,8 @@ const InteractiveRadarChart = () => {
         opacityCircles: 0.1, //The opacity of the circles of each blob
         strokeWidth: 2, //The width of the stroke around each blob
         roundStrokes: true, //If true the area and stroke will follow a round path (cardinal-closed)
-        editable: true, //If true, the user can edit it
-        showLabels: true, // If you want to show the labels
-        showName: true // If you want to show the name of the wine
     };
+
     const formatTooltip = function (d) {
         const gne =  [
                 "Low",
@@ -46,16 +81,21 @@ const InteractiveRadarChart = () => {
                 "Medium-high",
                 "High",
             ];
-        return gne[Math.floor(d.value * 5)];
+        return gne[Math.floor(d.value * other_config.levels)];
     };
 
-    const allAxis = defaultCoffee.profile.map(d => d.axis), //Names of each axis
-        total = allAxis.length, //The number of different axes
-        radius = Math.min(config.w / 2, config.h / 2), //Radius of the outermost circle
-        angleSlice = (Math.PI * 2) / total; //The width in radians of each "slice"
 
     //draws chart
     useEffect(() => {
+        if(props.data) setData(props.data)
+        if(props.isMain) setOptions(radarChartOptionsBig)
+
+        let config = {...options, ...other_config}
+
+        const allAxis = defaultCoffee.profile.map(d => d.axis), //Names of each axis
+            total = allAxis.length, //The number of different axes
+            radius = Math.min(config.w / 2, config.h / 2), //Radius of the outermost circle
+            angleSlice = (Math.PI * 2) / total; //The width in radians of each "slice"
         //Scale for the radius
         const rScale = d3.scaleLinear().range([0, radius]).domain([0, config.maxValue]);
 
@@ -141,7 +181,7 @@ const InteractiveRadarChart = () => {
 
         const blobWrapper = g
             .selectAll(".radarWrapper")
-            .data([defaultCoffee.profile])
+            .data([data.profile])
             .enter()
             .append("g")
             .attr("class", "radarWrapper");
@@ -168,7 +208,7 @@ const InteractiveRadarChart = () => {
 
         const blobCircleWrapper = g
             .selectAll(".radarCircleWrapper")
-            .data([defaultCoffee.profile])
+            .data([data.profile])
             .enter()
             .append("g")
             .attr("class", "radarCircleWrapper");
@@ -188,14 +228,7 @@ const InteractiveRadarChart = () => {
             tooltipBg.attr("x", textbb.x - 5).attr("y", textbb.y).attr("width", textbb.width + 10).attr("height", textbb.height)
         }
 
-        const updateColor = (switchcolor) => {
-            let color = switchcolor === "red" ? "rgb(253,12,64)" : "rgb(255,255,200)"
-            defaultCoffee.color = color
-            d3.selectAll(`${svgRef} .radarArea`).style("fill", color)
-            d3.selectAll(`${svgRef} .radarStroke`).style("stroke", color)
-        }
-
-        updateTooltip(defaultCoffee.name)
+        updateTooltip(data.name)
 
         blobCircleWrapper
             .selectAll(".radarInvisibleCircle")
@@ -223,7 +256,7 @@ const InteractiveRadarChart = () => {
                 blobWrapper
                     .selectAll(".radarStroke").transition().duration(200).style("stroke-opacity", 1)
 
-                if (config.showName) updateTooltip(defaultCoffee.name)
+                if (config.showName) updateTooltip(data.name)
                 else tooltipWrapper.transition().duration(200).attr("opacity", 0)
             })
         const drag = d3.drag()
@@ -248,9 +281,7 @@ const InteractiveRadarChart = () => {
             })
             .on("end", function (d, i) {
 
-                console.log("s " + d.value)
-                d.value = Math.floor(d.value * 5) / 5
-                console.log("e " + d.value)
+                d.value = Math.round(d.value * config.levels) / config.levels
                 d3.select(this)
                     .transition()
                     .attr("cx", rScale(d.value) * Math.cos(angleSlice * i - Math.PI / 2))
@@ -270,12 +301,14 @@ const InteractiveRadarChart = () => {
                 //new RadarChart("#radarChart1", closest[0], radarChartOptionsSmall);
                 //new RadarChart("#radarChart2", closest[1], radarChartOptionsSmall);
                 //new RadarChart("#radarChart3", closest[2], radarChartOptionsSmall);
-                console.log("Calculate 3 closest");
-
+                if(config.editable) {
+                    const closest = getClosest(data, props.allData);
+                    props.func(closest);
+                }
             });
         if (config.editable) blobCircleWrapper.selectAll(".radarInvisibleCircle").call(drag);
         
-    }, []);
+    }, [props,data]);
 
     return (<div className='interactive-radar' ref={svgRef}/>);
 };

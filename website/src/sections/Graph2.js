@@ -1,42 +1,67 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Graph2.css'
-import {RadarChart as Chart} from "./components/RadarChart";
-import {RadarChart} from "./components/COPYRadarChart";
-import InteractiveRadarChart from "./components/InteractiveRadarChart";
+import InteractiveRadarChart, {defaultCoffee} from "./components/InteractiveRadarChart";
+import tasteProfiles from "../data/variety_profiles.json"
 
+
+const formatData = (json) => {
+    var dict_list = []
+    json.forEach((row) => {
+        let format = {
+            name: row.Variety,
+            profile: [
+                { axis: "Aroma", value: row.Aroma },
+                { axis: "Flavor", value: row.Flavor },
+                { axis: "Aftertaste", value: row.Aftertaste },
+                { axis: "Acidity", value: row.Acidity },
+                { axis: "Body", value: row.Body },
+                { axis: "Balance", value: row.Balance },
+            ]
+        };
+        dict_list.push(format);
+    });
+    return dict_list;
+}
 const Graph2 = () => {
-  return (
+    const all_profiles = formatData(tasteProfiles);
+    const [mainData, setMainData] = useState(defaultCoffee);
+    const [smallData1, setSmallData1] = useState(defaultCoffee);
+    const [smallData2, setSmallData2] = useState(defaultCoffee);
+    const [smallData3, setSmallData3] = useState(defaultCoffee);
+
+    function handleDataFromChild(data) {
+        // sent 3 closest match
+        setSmallData1(data[0]);
+        setSmallData2(data[1]);
+        setSmallData3(data[2]);
+    }
+
+    return (
       <div className='graph2' id='graph2'>
-          <h1>{"Taste Profile of Coffee"}</h1>
+          <h1>{"Taste Profile of Coffee Beans"}</h1>
+          <InteractiveRadarChart
+              isMain={true}
+              data={mainData}
+              allData={all_profiles}
+              func={handleDataFromChild}
+          />
           <div className='main-radar'>
-              <div className='col-1'>
-                  <Chart
-                      label="Gesha"
-                      data={[8.5, 8.5, 7.92, 8.0, 7.92, 8.25]}
-                      backgroundColor={'rgba(45,137,141,0.2)'}
-                      borderColor={'rgb(92,218,241)'}
-                  />
-              </div>
-              <div className='col-2'>
-                  <Chart
-                      label="Java"
-                      data={[7.776667, 7.836667, 7.610000, 7.723333, 7.666667, 7.753333]}
-                      backgroundColor={'rgba(255, 99, 132, 0.2)'}
-                      borderColor={'rgba(255, 99, 132, 1)'}
-                  />
-              </div>
-              <div className='col-3'>
-                  <Chart
-                      label="Castillo Paraguaycito"
-                      data={[8.080000, 8.000000, 7.830000, 8.170000, 7.750000, 7.830000]}
-                      backgroundColor={'rgba(206,149,83,0.2)'}
-                      borderColor={'rgb(225,151,99)'}
-                  />
-              </div>
+              <InteractiveRadarChart
+                  isMain={false}
+                  data={smallData1}
+              />
+              <InteractiveRadarChart
+                  isMain={false}
+                  data={smallData2}
+              />
+              <InteractiveRadarChart
+                  isMain={false}
+                  data={smallData3}
+              />
           </div>
-          <InteractiveRadarChart/>
       </div>
-  )
+    )
 }
 
 export default Graph2
+
