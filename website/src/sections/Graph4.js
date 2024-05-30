@@ -5,8 +5,6 @@ import CodersData from '../data/codersData.json'
 
 const Graph4 = () => {
   useEffect(()=>{
-    const dataArray = Object.values(CodersData.CodingHours)
-    dataArray.forEach(value => console.log(value));
     var layout= {
       plot_bgcolor:"bisque",
       paper_bgcolor:"bisque"
@@ -15,48 +13,60 @@ const Graph4 = () => {
       {
           type: 'parcoords',
           line: {
-              color: 'blue'
+              showscale: true,
+              colorscale: 'Jet',
+              cmin: 0,
+              cmax: 4,
+              color: Object.values(CodersData.Cluster)
           },
           dimensions: [
               {
-                  range: [1, 10],
+                  range: [0, 10],
                   label: 'Coding Hours',
                   values: Object.values(CodersData.CodingHours)
               },
               {
-                  range: [1, 10],
+                  range: [0, 10],
                   label: 'Coffee Cups Per Day',
                   values: Object.values(CodersData.CoffeeCupsPerDay)
               },
               {
-                  range: [1, 5],
+                  label: 'Preferred Coffee Drink',
+                  tickvals: [-1, 0, 1,2,3,4,5,6, 7],
+                  ticktext: ["None", 'Caffè latte', 'Americano', 'Nescafe', 'Turkish',
+                      'American Coffee', 'Espresso (Short Black)', 'Cappuccino',
+                      'Double Espresso (Doppio)'],
+                  values: Object.values(CodersData.CoffeeType)
+              },
+              {
                   label: 'Coffee Time',
+                  tickvals: [0,1,2,3,4,5,6],
+                  ticktext: ["No specific time", "In the morning", "Before coding", "While coding",  "After coding", "Before and while coding", "All the time"],
                   values: Object.values(CodersData.CoffeeTime)
               },
               {
-                  range: [1, 5],
                   label: 'Coding Without Coffee',
+                  tickvals: [0,1,2],
+                  ticktext: ["No", "Sometimes", "Yes"],
                   values: Object.values(CodersData.CodingWithoutCoffee)
               },
               {
-                  range: [1, 10],
                   label: 'Coffee Solve Bugs',
+                  tickvals: [0,1,2],
+                  ticktext: ["No", "Sometimes", "Yes"],
                   values: Object.values(CodersData.CoffeeSolveBugs)
               },
               {
-                  range: [1, 10],
                   label: 'Gender',
+                  tickvals: [0,1],
+                  ticktext: ["Male", "Female"],
                   values: Object.values(CodersData.Gender)
               },
               {
-                  range: [1, 10],
                   label: 'Age Range',
+                  tickvals: [-1, 0,1,2,3,4],
+                  ticktext: ["unknown", 'Under 18', '18 to 29', '30 to 39', '40 to 49', '50 to 59'],
                   values: Object.values(CodersData.AgeRange)
-              },
-              {
-                  range: [1, 10],
-                  label: 'Cluster',
-                  values: Object.values(CodersData.Cluster)
               }
           ]
       }

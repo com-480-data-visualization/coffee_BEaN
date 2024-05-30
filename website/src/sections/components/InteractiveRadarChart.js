@@ -119,17 +119,6 @@ const InteractiveRadarChart = (props) => {
             .append("g")
             .attr("transform", "translate(" + (config.w / 2 + config.margin.left) + "," + (config.h / 2 + config.margin.top) + ")");
 
-        // GLOW
-
-        const filter = g.append("defs").append("filter").attr("id", "glow"),
-            feGaussianBlur = filter
-                .append("feGaussianBlur")
-                .attr("stdDeviation", "2.5")
-                .attr("result", "coloredBlur"),
-            feMerge = filter.append("feMerge"),
-            feMergeNode_1 = feMerge.append("feMergeNode").attr("in", "coloredBlur"),
-            feMergeNode_2 = feMerge.append("feMergeNode").attr("in", "SourceGraphic");
-
         // DRAW CIRCULAR GRID
 
         const axisGrid = g.append("g").attr("class", "axisWrapper");
@@ -267,9 +256,10 @@ const InteractiveRadarChart = (props) => {
                 else tooltipWrapper.transition().duration(200).attr("opacity", 0)
             })
         const drag = d3.drag()
-            .on("drag", function (d, i) {
-                let y = d3.mouse(this)[1]
-                let x = d3.mouse(this)[0]
+            .on("drag", (event, d) => {
+                let i = d.value
+                let y = event.y
+                let x = event.x
                 let distFromCenter = Math.sqrt(y * y + x * x)
                 d.value = Math.min(Math.max(0.1, rScale.invert(distFromCenter)), config.maxValue) // clamp value to not go outside of graphic
                 d3.select(this)
@@ -286,8 +276,8 @@ const InteractiveRadarChart = (props) => {
                 blobWrapper
                     .selectAll(".radarArea").style("fill-opacity", config.opacityArea - 0.2)
             })
-            .on("end", function (d, i) {
-
+            .on("end", (event, d) => {
+                let i = d.value
                 d.value = Math.round(d.value * config.levels) / config.levels
                 d3.select(this)
                     .transition()
