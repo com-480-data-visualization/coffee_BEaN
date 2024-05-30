@@ -72,7 +72,6 @@ const Graph2 = () => {
     };
 
     const handleOnFocus = () => {
-        console.log("Focused");
     };
 
     const handleOnClear = () => {

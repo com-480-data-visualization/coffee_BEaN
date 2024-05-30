@@ -119,17 +119,6 @@ const InteractiveRadarChart = (props) => {
             .append("g")
             .attr("transform", "translate(" + (config.w / 2 + config.margin.left) + "," + (config.h / 2 + config.margin.top) + ")");
 
-        // GLOW
-
-        const filter = g.append("defs").append("filter").attr("id", "glow"),
-            feGaussianBlur = filter
-                .append("feGaussianBlur")
-                .attr("stdDeviation", "2.5")
-                .attr("result", "coloredBlur"),
-            feMerge = filter.append("feMerge"),
-            feMergeNode_1 = feMerge.append("feMergeNode").attr("in", "coloredBlur"),
-            feMergeNode_2 = feMerge.append("feMergeNode").attr("in", "SourceGraphic");
-
         // DRAW CIRCULAR GRID
 
         const axisGrid = g.append("g").attr("class", "axisWrapper");
