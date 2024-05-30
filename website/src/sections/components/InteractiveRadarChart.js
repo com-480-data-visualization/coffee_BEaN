@@ -89,6 +89,13 @@ const InteractiveRadarChart = (props) => {
     useEffect(() => {
         if(props.data) setData(props.data)
         if(props.isMain) setOptions(radarChartOptionsBig)
+        if(props.data !== defaultCoffee && props.isMain){
+            // searched data
+            var searchedOptions = options;
+            searchedOptions.editable = false;
+            searchedOptions.showName = true;
+            setOptions(searchedOptions);
+        }
 
         let config = {...options, ...other_config}
 
@@ -297,11 +304,7 @@ const InteractiveRadarChart = (props) => {
                     .selectAll(".radarArea").transition().duration(200).style("fill-opacity", config.opacityArea)
 
                 // show closest
-                //const closest = getClosestWine(data, tasteData, 3)
-                //new RadarChart("#radarChart1", closest[0], radarChartOptionsSmall);
-                //new RadarChart("#radarChart2", closest[1], radarChartOptionsSmall);
-                //new RadarChart("#radarChart3", closest[2], radarChartOptionsSmall);
-                if(config.editable) {
+                if(props.isMain) {
                     const closest = getClosest(data, props.allData);
                     props.func(closest);
                 }
