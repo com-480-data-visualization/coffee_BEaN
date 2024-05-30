@@ -59,8 +59,8 @@ const InteractiveRadarChart = (props) => {
         showLabels: false // If you want to show the name of the bean
     }
 
-    const [data, setData] = useState(defaultCoffee);
-    const [options, setOptions] = useState(radarChartOptionsSmall);
+    const [data, setData] = useState((props.data) ? defaultCoffee: props.data);
+    const [options, setOptions] = useState((props.isMain) ? radarChartOptionsBig: radarChartOptionsSmall);
 
     let other_config = {
         levels: 5, //How many levels or inner circles should there be drawn
@@ -308,7 +308,7 @@ const InteractiveRadarChart = (props) => {
             });
         if (config.editable) blobCircleWrapper.selectAll(".radarInvisibleCircle").call(drag);
         
-    }, [props,data]);
+    }, [data, props]);
 
     return (<div className='interactive-radar' ref={svgRef}/>);
 };
