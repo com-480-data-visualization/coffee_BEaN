@@ -96,35 +96,35 @@ const Graph4 = () => {
           <div style={{width: '90%'}} id="ParallelCoordinatesGraph"></div>
           <div className="clusters">
               <p style={{width: '90%'}}>
-                  <span style={{fontWeight: 'bolder', color: 'darkblue'}}>{"Dark Blue Group"}</span>
+                  <span style={{fontWeight: 'bolder', color: 'darkblue'}}>{"Coding Joe/Jane"}</span>
                   <br/>
                   <br/>
                   {"33% of people is in this group which is the biggest of the groups. They are most common coffee drinkers in coding. They drink coffee while they are coding and before " +
                       "coding. They are mostly 18 to 29 years old."}
               </p>
               <p style={{width: '90%'}}>
-                  <span style={{fontWeight: 'bolder', color: 'lightblue'}}>{"Light Blue Group"}</span>
+                  <span style={{fontWeight: 'bolder', color: 'lightblue'}}>{"Enough Sleep Coder"}</span>
                   <br/>
                   <br/>
                   {"20% is in this group. They do not drink coffee so much, less than 3 cups per day, most of them drink only one cup per day. " +
                       "Most of them like Nescafe. Most of them are either 18 to 29 years old or 30 to 39 years old."}
               </p>
               <p style={{width: '90%'}}>
-                  <span style={{fontWeight: 'bolder', color: 'lightgreen'}}>{"Green Group"}</span>
+                  <span style={{fontWeight: 'bolder', color: 'lightgreen'}}>{"Under-represented Coders"}</span>
                   <br/>
                   <br/>
                   {"17% is in this group. They are mainly occupied by female. They do not drink coffee so much, less than 3 cups per day, most of " +
                       "them drink two cups per day. Most of them like American coffee or Nescafe. Most of them are 18 to 29 years old."}
               </p>
               <p style={{width: '90%'}}>
-                  <span style={{fontWeight: 'bolder', color: 'orange'}}>{"Orange Group"}</span>
+                  <span style={{fontWeight: 'bolder', color: 'orange'}}>{"Coffee-Powered Coder"}</span>
                   <br/>
                   <br/>
                   {"11% is in this group. They are coding for long hours and drink coffee too much, most of them drink more than 4 cups per day. " +
                       "And they drink coffee not only while they are coding but also all the time. Most of them are 18 to 29 years old."}
               </p>
               <p style={{width: '90%'}}>
-                  <span style={{fontWeight: 'bolder', color: 'darkred'}}>{"Dark Red Group"}</span>
+                  <span style={{fontWeight: 'bolder', color: 'darkred'}}>{"Veteran Coder"}</span>
                   <br/>
                   <br/>
                   {"19% is in this group. They are over 40 years old. Most of them drink coffee while they are coding, 2 to 4 cups per day. " +
