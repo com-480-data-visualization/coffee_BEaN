@@ -69,6 +69,7 @@ const Graph = () => {
       <div className='main-map'>
           <div style={{width: 350, margin: 20}}>
               <ReactSearchAutocomplete
+                  placeholder={"All Varieties"}
                   items={searchList}
                   maxResults={5}
                   onSearch={handleOnSearch}

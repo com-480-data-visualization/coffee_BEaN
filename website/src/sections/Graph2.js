@@ -84,6 +84,7 @@ const Graph2 = () => {
             <h1>{"Taste Profile of Coffee Beans"}</h1>
             <div style={{width: 350, margin: 20}}>
                 <ReactSearchAutocomplete
+                    placeholder={"Search for a bean variety..."}
                     items={searchList}
                     maxResults={5}
                     onSearch={handleOnSearch}
