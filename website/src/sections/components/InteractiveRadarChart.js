@@ -16,7 +16,7 @@ export const defaultCoffee = {
     ]
 }
 
-function getClosest(coffee, data, k = 3) {
+export function getClosest(coffee, data, k = 3) {
     let _coffee = coffee.profile.map(p => p.value)
 
     function dist(a, b) {
@@ -89,12 +89,15 @@ const InteractiveRadarChart = (props) => {
     useEffect(() => {
         if(props.data) setData(props.data)
         if(props.isMain) setOptions(radarChartOptionsBig)
+        else setOptions(radarChartOptionsSmall)
         if(props.data !== defaultCoffee && props.isMain){
             // searched data
-            var searchedOptions = options;
-            searchedOptions.editable = false;
-            searchedOptions.showName = true;
-            setOptions(searchedOptions);
+            options.editable = false;
+            options.showName = true;
+        }
+        if((!props.isMain) && props.data === defaultCoffee) {
+            // do not show default name
+            options.showName = false;
         }
 
         let config = {...options, ...other_config}
