@@ -76,7 +76,7 @@ const Graph3 = () => {
     const chartConfig = {
       type: 'pop-pyramid',
       globals: {
-        fontSize: '14px'
+        fontSize: '14px',
       },
       title: {
         text: 'Population Pyramid by Age Group',
@@ -85,8 +85,9 @@ const Graph3 = () => {
       options: {
         // values can be: 'bar', 'hbar', 'area', 'varea', 'line', 'vline'
         aspect: 'hbar',
+        backgroundColor: 'none',
         plotarea: {
-          'background-color': "#D04347"
+          backgroundColor: "transparent"
         }
       },
       legend: {
@@ -157,7 +158,7 @@ const Graph3 = () => {
 
   return (
     <div className="graph3">
-    <h1>Demographics of Coffee Drinkers</h1>
+    <h1>Habits of Coffee Drinkers</h1>
     <p>Discover Coffee Trends with Our Interactive Population Pyramid! Dive into the world of coffee enthusiasts with our dynamic Population Pyramid chart, designed to reveal fascinating insights into coffee drinking habits across various demographics. Use the population filter and interactive slider to explore categories like <strong>Types of sugar/sweeter people add to their coffee</strong>, <strong>Why people drink coffee</strong>, <strong>Where people purchase coffee</strong>, and more. Watch as the chart updates in real-time, showcasing intriguing statistics such as hover information on the most common daily cups of coffee, expenditure, and highest price they are willing to pay for coffee. Uncover the coffee trends that define different groups and see how your own habits compare. Explore and engage with the data to learn more about the diverse world of coffee drinkers!</p>
     <br></br>
     <div className="controls">
