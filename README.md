@@ -140,7 +140,7 @@ From our Cocktail dataset, we showcased the categories of different drinks that 
 **80% of the final grade**
 
 ### Screencast and process book
-[Screencast](documents/screencast.mp4) and the PDF document for the [Process Book](documents/Process%20Book.pdf) are available in the 'documents' folder.
+[Screencast](documents/Screencast.mp4) and the PDF document for the [Process Book](documents/Process%20Book.pdf) are available in the 'documents' folder.
 
 ### Technical Setup
 Requirements:
