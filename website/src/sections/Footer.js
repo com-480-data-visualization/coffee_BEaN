@@ -11,17 +11,17 @@ function Footer() {
               <div className='col-1'>
                   <h2>{"Elif Kurtay"}</h2>
                   <span className='line'></span>
-                  <p>{"description"}</p>
+                  <p>{""}</p>
               </div>
               <div className='col-2'>
                   <h2>{"Burcu Ozer"}</h2>
                   <span className='line'></span>
-                  <p>{"description"}</p>
+                  <p>{""}</p>
               </div>
               <div className='col-3'>
                   <h2>{"Nikhen Sanjaya Nyo"}</h2>
                   <span className='line'></span>
-                  <p>{"description"}</p>
+                  <p>{""}</p>
               </div>
           </div>
       </div>

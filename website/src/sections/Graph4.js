@@ -6,8 +6,8 @@ import CodersData from '../data/codersData.json'
 const Graph4 = () => {
   useEffect(()=>{
     var layout= {
-      plot_bgcolor:"bisque",
-      paper_bgcolor:"bisque"
+      plot_bgcolor:"white",
+      paper_bgcolor:"white"
     }
     var data = [
       {
@@ -75,10 +75,57 @@ const Graph4 = () => {
   Plotly.newPlot('ParallelCoordinatesGraph', data, layout);
   })
   return (
-    <div className='graph4' id='graph4'>
-      <h1>Parallel Coordinates Graph</h1>
-      <div id = "ParallelCoordinatesGraph"></div>
-    </div>
+      <div className='graph4' id='graph4'>
+          <h1>Coders and Coffee</h1>
+          <p>{"Having a cup of coffee by your side when you dive into some complicated code is part of a habit. " +
+              "It’s almost like a trigger for us when we are pondering a complicated problem: " +
+              "as soon as we sit down with a cup of coffee in hand, the ideas will start flowing! " +
+              "Apparently, it is not so different for many other coders. Here, we have gathered some information from coders " +
+              "and their habits with coffee. "}
+              <br/>
+              <br/>
+              {"Feel free to choose a range of values in each column to see who has similar habits with you! " +
+                  "You can also move around the columns!"}
+          </p>
+          <div style={{width: '90%'}} id="ParallelCoordinatesGraph"></div>
+          <div className="clusters">
+              <p style={{width: '90%'}}>
+                  <span style={{fontWeight: 'bolder', color: 'darkblue'}}>{"Dark Blue Group"}</span>
+                  <br/>
+                  <br/>
+                  {"33% of people is in this group which is the biggest of the groups. They are most common coffee drinkers in coding. They drink coffee while they are coding and before " +
+                      "coding. They are mostly 18 to 29 years old."}
+              </p>
+              <p style={{width: '90%'}}>
+                  <span style={{fontWeight: 'bolder', color: 'lightblue'}}>{"Light Blue Group"}</span>
+                  <br/>
+                  <br/>
+                  {"20% is in this group. They do not drink coffee so much, less than 3 cups per day, most of them drink only one cup per day. " +
+                      "Most of them like Nescafe. Most of them are either 18 to 29 years old or 30 to 39 years old."}
+              </p>
+              <p style={{width: '90%'}}>
+                  <span style={{fontWeight: 'bolder', color: 'lightgreen'}}>{"Green Group"}</span>
+                  <br/>
+                  <br/>
+                  {"17% is in this group. They are mainly occupied by female. They do not drink coffee so much, less than 3 cups per day, most of " +
+                      "them drink two cups per day. Most of them like American coffee or Nescafe. Most of them are 18 to 29 years old."}
+              </p>
+              <p style={{width: '90%'}}>
+                  <span style={{fontWeight: 'bolder', color: 'orange'}}>{"Orange Group"}</span>
+                  <br/>
+                  <br/>
+                  {"11% is in this group. They are coding for long hours and drink coffee too much, most of them drink more than 4 cups per day. " +
+                      "And they drink coffee not only while they are coding but also all the time. Most of them are 18 to 29 years old."}
+              </p>
+              <p style={{width: '90%'}}>
+                  <span style={{fontWeight: 'bolder', color: 'darkred'}}>{"Dark Red Group"}</span>
+                  <br/>
+                  <br/>
+                  {"19% is in this group. They are over 40 years old. Most of them drink coffee while they are coding, 2 to 4 cups per day. " +
+                      "About half of them like Turkish coffee. (The coders who input their ideas in this data are mainly from Middle East.)"}
+              </p>
+          </div>
+      </div>
   )
 }
 

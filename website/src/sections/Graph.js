@@ -68,9 +68,11 @@ const Graph = () => {
           <p>{"Have you ever wondered where do coffee beans grow? Which countries can actually cultivate coffee?? " +
               "Well... we have! So, we did some research to show others like us!"}
               <br/>
+              <br/>
               {"Feel free to hover over the World Map below to find out more information on countries' coffee production! You can also look for a specific bean variety with the help of the search bar below."}
               <br/>
-              {"Total Cup Points: ???"}
+              <span style={{fontWeight: 'bolder'}}>{"Total Cup Points:"}</span>
+              {" quantifies the quality of coffee beans based on 10 sensory parameters: Aroma, Flavor, Aftertaste, Acidity, Body, Balance, Uniformity, Clean Cup (lackness of defects), Sweetness and Overall Impression. A variety that has a score higher than 80 is considered as \"Specialty Coffee\"."}
           </p>
           <div className='main-map'>
               <div className='search-bar'>
