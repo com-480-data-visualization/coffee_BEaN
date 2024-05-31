@@ -133,12 +133,41 @@ From our Cocktail dataset, we showcased the categories of different drinks that 
 ## Milestone 2 (26th April, 5pm)
 
 **10% of the final grade**
-
+[Milestone 2](documents/Milestone%202.pdf)  PDF document is available in the folder documents.
 
 ## Milestone 3 (31st May, 5pm)
 
 **80% of the final grade**
 
+### Screencast and process book
+Screencast and the PDF document for the [Progress Book](documents/Progress%20Book.pdf) are available in the 'documents' folder.
+
+### Technical Setup
+Requirements:
+- Node.js
+- yarn (npm install yarn)
+
+In order to run the development version of the website:
+- clone the repository, 
+- go into the "website" folder 
+- run `yarn install`
+- run `yarn start`
+The development server will start and the URL of the local website will be visible in the terminal.
+
+In order to build the production version of the website: 
+- clone the repository,
+- go into the "website" folder
+- run `yarn install`
+- run `npm run build`
+
+Production build of the website will be located in the website/build/ folder.
+You can also check out the "gh-pages" branch for the build folder.
+
+### Website
+The website is hosted by Github Pages and is available [here](https://com-480-data-visualization.github.io/coffee_BEaN/).
+
+### Data
+The data used in the visualizations are available in the folder website/src/data.
 
 ## Late policy
 
