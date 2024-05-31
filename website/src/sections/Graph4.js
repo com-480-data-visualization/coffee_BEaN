@@ -13,13 +13,19 @@ const Graph4 = () => {
       {
           type: 'parcoords',
           line: {
-              showscale: true,
+              showscale: false,
               colorscale: 'Jet',
               cmin: 0,
               cmax: 4,
               color: Object.values(CodersData.Cluster)
           },
           dimensions: [
+              {
+                  range: [0, 4],
+                  label: 'Groups',
+                  ticktext: ["Dark Blue", 'Light Blue', 'Green', 'Orange', 'Dark Red'],
+                  values: Object.values(CodersData.Cluster)
+              },
               {
                   range: [0, 10],
                   label: 'Coding Hours',
