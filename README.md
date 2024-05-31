@@ -8,7 +8,7 @@
 
 [Website](https://com-480-data-visualization.github.io/coffee_BEaN/)
 
-[Milestone 1](documents/Milestone%201.pdf) • [Milestone 2](documents/Milestone%202.pdf) • [Milestone 3](#milestone-3)
+[Milestone 1](documents/Milestone%201.pdf) • [Milestone 2](documents/Milestone%202.pdf) • [Milestone 3](#milestone-3-31st-may-5pm)
 
 ## Milestone 1 (29th March, 5pm)
 
