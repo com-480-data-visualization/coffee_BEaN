@@ -1,63 +1,63 @@
 import React, { useState, useEffect } from 'react'
 import './Graph3.css'
+import Select from 'react-select';
 import useScript from './useScript';
 import filtered_population_data from "../data/filtered_population_pyramids_data.json"
 import overall_population_data from "../data/overall_population_data.json"
 const Graph3 = () => {
 
-  // Reduce the data to create a mapping of population filters to categories
   const populationFilterToCategories = filtered_population_data.reduce((acc, item) => {
     if (!acc[item["Population Filter"]]) {
-      acc[item["Population Filter"]] = new Set(); // Initialize with a Set to ensure uniqueness
+      acc[item["Population Filter"]] = new Set();
     }
     acc[item["Population Filter"]].add(item["Category"]);
     return acc;
   }, {});
 
-  // Convert Sets to Arrays for easier access and manipulation
   const populationFilterToCategoriesList = Object.keys(populationFilterToCategories).reduce((acc, key) => {
     acc[key] = Array.from(populationFilterToCategories[key]);
     return acc;
   }, {});
-  console.log(populationFilterToCategoriesList)
 
-  // State to hold the currently selected filter and category
+  const filterOptions = [
+    { value: '', label: 'Overall Population' },
+    ...Object.keys(populationFilterToCategoriesList).map(filter => ({
+      value: filter,
+      label: filter
+    }))
+  ];
+
   const [currentFilter, setCurrentFilter] = useState('');
-  const [currentCategory, setCurrentCategory] = useState('');
+  const [currentCategory, setCurrentCategory] = useState('Overall Population');
   const [categories, setCategories] = useState([]);
   const [currentCategoryData, setCurrentCategoryData] = useState(overall_population_data);
 
-  // Populate the categories based on the selected filter
-  useEffect(() => {
-    if (currentFilter) {
-      setCategories(populationFilterToCategoriesList[currentFilter]);
-      setCurrentCategory(populationFilterToCategoriesList[currentFilter][0] || '');
-    } else {
-      // Reset to overall population data when no filter is selected
-      setCategories([]);
-      setCurrentCategory('');
+  const handleFilterChange = selectedOption => {
+    const filter = selectedOption ? selectedOption.value : '';
+    setCurrentFilter(filter);
+    const newCategories = populationFilterToCategoriesList[filter] || [];
+    setCategories(newCategories);
+    setCurrentCategory(newCategories.length > 0 ? newCategories[0] : 'Overall Population');
+    if (!filter) {
       setCurrentCategoryData(overall_population_data);
     }
-  }, [currentFilter]);
+  };
 
-  // Update current category data based on changes in filter or category
+  const handleCategoryChange = e => {
+    setCurrentCategory(categories[e.target.value]);
+  };
+
   useEffect(() => {
-    if (currentFilter && currentCategory) {
+    if (currentFilter && currentCategory !== 'Overall Population') {
       const data = filtered_population_data
         .filter(item => item["Population Filter"] === currentFilter && item["Category"] === currentCategory)
         .flatMap(item => item.Data);
       setCurrentCategoryData(data);
-    } else if (!currentFilter) {
+    } else {
       setCurrentCategoryData(overall_population_data);
     }
   }, [currentCategory, currentFilter]);
 
-
-
-
-  //Current category data will be based on the filters
-  const current_category_data = 
-  filtered_population_data.filter((dictionary) => dictionary["Population Filter"] === "Where do you typically drink coffee?" && dictionary["Category"] === "At home").map((item) => item.Data).flat();
   const getHoverText = (ageGroup, gender) => {
 
     const data = currentCategoryData.find(item => item.Gender === gender && item.Age.includes(ageGroup));
@@ -85,6 +85,9 @@ const Graph3 = () => {
       options: {
         // values can be: 'bar', 'hbar', 'area', 'varea', 'line', 'vline'
         aspect: 'hbar',
+        plotarea: {
+          'background-color': "#D04347"
+        }
       },
       legend: {
         shared: true
@@ -155,15 +158,15 @@ const Graph3 = () => {
   return (
     <div className="graph3">
     <h1>Demographics of Coffee Drinkers</h1>
-    <h3></h3>
+    <p>Discover Coffee Trends with Our Interactive Population Pyramid! Dive into the world of coffee enthusiasts with our dynamic Population Pyramid chart, designed to reveal fascinating insights into coffee drinking habits across various demographics. Use the population filter and interactive slider to explore categories like <strong>Types of sugar/sweeter people add to their coffee</strong>, <strong>Why people drink coffee</strong>, <strong>Where people purchase coffee</strong>, and more. Watch as the chart updates in real-time, showcasing intriguing statistics such as hover information on the most common daily cups of coffee, expenditure, and highest price they are willing to pay for coffee. Uncover the coffee trends that define different groups and see how your own habits compare. Explore and engage with the data to learn more about the diverse world of coffee drinkers!</p>
+    <br></br>
     <div className="controls">
-      <select value={currentFilter} onChange={e => setCurrentFilter(e.target.value)}>
-        <h2>Filter:</h2>
-        <option value=""><h2>Main Population</h2></option>
-        {Object.keys(populationFilterToCategoriesList).map(filter => (
-          <option key={filter} value={filter}><h2>{filter}</h2></option>
-        ))}
-      </select>
+    <Select
+          value={filterOptions.find(option => option.value === currentFilter)}
+          onChange={handleFilterChange}
+          options={filterOptions}
+          placeholder="Select a filter"
+        />
       {categories.length > 0 && (
         <div className="slider-container">
           <input
