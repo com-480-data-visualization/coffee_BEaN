@@ -161,7 +161,9 @@ const Graph3 = () => {
     <h1>Habits of Coffee Drinkers</h1>
     <p>Discover Coffee Trends with Our Interactive Population Pyramid! Dive into the world of coffee enthusiasts with our dynamic Population Pyramid chart, designed to reveal fascinating insights into coffee drinking habits across various demographics. Use the population filter and interactive slider to explore categories like <strong>Types of sugar/sweeter people add to their coffee</strong>, <strong>Why people drink coffee</strong>, <strong>Where people purchase coffee</strong>, and more. Watch as the chart updates in real-time, showcasing intriguing statistics such as hover information on the most common daily cups of coffee, expenditure, and highest price they are willing to pay for coffee. Uncover the coffee trends that define different groups and see how your own habits compare. Explore and engage with the data to learn more about the diverse world of coffee drinkers!</p>
     <br></br>
+    <h3>Choose a filter from the selection box below to narrow down the population, then use the slider to select a specific coffee demographic category! &#128522;</h3>
     <div className="controls">
+    <br></br>
     <Select
           value={filterOptions.find(option => option.value === currentFilter)}
           onChange={handleFilterChange}
